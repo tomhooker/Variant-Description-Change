@@ -975,7 +975,15 @@ class VariantSelects extends HTMLElement {
       this.updateVariantInput();
       this.renderProductInfo();
       this.updateShareUrl();
+      this.updateVariantDetails();
     }
+  }
+
+  updateVariantDetails() {
+    const allVariantMetafieldData = JSON.parse(document.querySelector('#variant_metafield_data').textContent)
+
+    const VariantDetailsTextElement = document.querySelector('#variant-details');
+    VariantDetailsTextElement.innerHTML = allVariantMetafieldData[this.currentVariant.id];
   }
 
   updateOptions() {
